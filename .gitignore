@@ -13,3 +13,10 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# goland
+.idea
+# macos
+.DS_Store
+# node.js
+node_module
