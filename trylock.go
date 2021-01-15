@@ -25,5 +25,9 @@ func (t *Trylock) Lock() bool {
 
 // 为了解锁，就是把这个channle重新重入数据即可。
 func (t *Trylock) Unlock() {
-	t.data <- struct{}{}
+	select {
+	case t.data <- struct{}{}:
+	default:
+		panic("no lock yet.")
+	}
 }
